@@ -7,7 +7,7 @@ to build a different spin of Rolling Rhino Remix, switch branches.
 
 
 ### In detail
-Frst `tch_build` s file from fetch_build.conf and names it ubuntu.iso which
+First `fetch_build` downloads a file from `fetch_build.conf` and names it `ubuntu.iso` which
 is the base for all operations. Next it runs `sudo make` this defaults to bulding iso.
 Next the stuff from [makefile](https://github.com/cat-master21/RRR-builder/blob/RRR-rolling/Makefile) begins 
 where it firsts starts by uncompressing the iso/cd image 
