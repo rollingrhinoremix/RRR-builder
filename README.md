@@ -2,12 +2,31 @@
 ### How to install
 you need to have `cd-boot-images-amd64` and `xorriso`
 next you can `chmod +x ./fetch_build && ./fetch_build`
-to build the entire iso.
+to build the entire iso. after you can do `sudo make clean` to remove stuff.
 to build a different spin of Rolling Rhino Remix, switch branches.
+
+
+### In detail
+Frst `tch_build` s file from fetch_build.conf and names it ubuntu.iso which
+is the base for all operations. Next it runs `sudo make` this defaults to bulding iso.
+Next the stuff from [makefile](https://github.com/cat-master21/RRR-builder/blob/RRR-rolling/Makefile) begins 
+where it firsts starts by uncompressing the iso/cd image 
+(ubuntu.iso from fetch_build and fetch_build.conf) to `extract-cd` then 
+uncompresses the the actual stuff you install inside of it to `./edit`.
+then the it prepares to go inside of that with chroot and executes
+`./build/build.sh` inside the chroot/filesystem which prepares a bit
+then executes `./build/switch.sh` which changes the actual os from generic Ubuntu
+After `switch.sh` is finished `build.sh` ends soon after and the `makefile` still
+goes on. Next we move on to editing the cd image not the filesystem stuff
+where the `grub.cfg` and `loopback.cfg` is copied to `extract-cd` and
+also the filesystem is compressed to save space. Next after the disk stuff has been
+defined, it is given md5 checksum to every file inside. And finally with that it is
+compressed to a iso with setttings from `build.conf`. and last thing is a md5 of it.
+
 
 ### How to create your own spin
 the files you'll need to edit are build.conf, grub.cfg, loopback.cfg, files in `./build`,
-and maybe fetch_build.conf
+and maybe fetch_build.conf.
 This may look intimidating but don't worry.
 for loopback.cfg and grub.cfg all you have to do is edit the names from
 `Rolling Rhino` to whatever the name of os is. Currently this will be automated in future
@@ -18,6 +37,7 @@ and the name if outputting .iso.
 next the files in `./build`, the `build.sh` is used for startup generally this is used
 in the middle to remove gnome packages and stuff but it is okay if you do it in the
 `switch.sh` which converts your install to the os you see it as.
+
 
 ### Suggestions
 If you want to create a unnoficial spin,
