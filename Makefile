@@ -86,7 +86,7 @@ build.iso: extract-cd/.disk extract-cd/boot extract-cd/README.diskdefines extrac
 iso: build.iso
 
 build.iso-zstd: build.iso
-	zstd -16 "$$OUT_ISO"
+	source build.conf && zstd -16 "$$OUT_ISO"
 
 clean:
 	@rm -rf edit extract-cd mnt squashfs-root .edit.timestamp .enter.timestamp .hosts.backup
