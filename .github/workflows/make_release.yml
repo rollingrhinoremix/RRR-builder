@@ -16,6 +16,8 @@ jobs:
 
       - name: Build
         run: |
+          sudo apt-get update -y
+          sudo apt-get dist-upgrade
           sudo apt-get install axel xorriso cd-boot-images-amd64 chroot squashfs-tools -y
           echo "Free space:"
           sudo df -h
