@@ -12,7 +12,7 @@ bash ./.sources.sh
 
 apt-get clean -y
 #from rhino update
-{ apt-get update -yq; apt-get dist-upgrade -yq; }
+{ apt-get --allow-releaseinfo-change update -yq; apt-get --allow-releaseinfo-change dist-upgrade -yq; }
 
 rm -rf ~/tmp
 cd /
