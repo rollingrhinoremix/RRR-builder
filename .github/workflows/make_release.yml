@@ -18,7 +18,10 @@ jobs:
         run: |
           sudo apt-get update -y
           sudo apt-get dist-upgrade
-          sudo apt-get install axel xorriso cd-boot-images-amd64 chroot squashfs-tools -y
+          sudo apt-get install axel xorriso coreutils squashfs-tools -y
+          wget "http://mirrors.kernel.org/ubuntu/pool/main/c/cd-boot-images-amd64/cd-boot-images-amd64_17_all.deb"
+          sudo dpkg -i "cd-boot-images-amd64_17_all.deb"
+          rm -rf "./cd-boot-images-amd64_17_all.deb"
           echo "Free space:"
           sudo df -h
           sudo source fetch_build.conf && axel "DOWNLOAD_ISO" --output="ubuntu.iso"
