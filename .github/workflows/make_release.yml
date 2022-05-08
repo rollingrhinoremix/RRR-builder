@@ -27,7 +27,7 @@ jobs:
          source buld.conf && ls | grep -v "$OUT_ISO" | xargs sudo rm -rf
          sudo rm -rf ./.edit.timestamp ./.enter.timestamp ./.git
          cd ../
-      - name: Upload Build Artifact
-        uses: actions/upload-artifact@v3.0.0
+      - uses: actions/upload-artifact@v3.0.0
         with:
           path: ./RRR-builder/
+          retention-days: 3
