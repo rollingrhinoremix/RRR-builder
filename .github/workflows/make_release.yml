@@ -1,0 +1,32 @@
+name: Make_Release
+on: 
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build os
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Maximize disk space
+        uses: easimon/maximize-build-space@master
+        with:
+          swap-size-mb: 1524
+          remove-dotnet: 'true'
+          remove-android: 'true'
+
+      - name: Build
+        run: |
+          apt-get install axel xorriso cd-boot-images-amd64 chroot squashfs-tools -y
+          echo "Free space:"
+          df -h
+          source fetch_build.conf && axel "DOWNLOAD_ISO" --output="ubuntu.iso"
+          chmod +x ./build/build.sh ./build/switch.sh
+          make build.iso
+          rm -rf ./ubuntu.iso
+      - uses: "marvinpinto/action-automatic-releases@latest"
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          automatic_release_tag: "continuous-generic"
+          prerelease: false
+          title: "Rolling Rhino generic release"
+          files: *.iso
