@@ -16,13 +16,13 @@ jobs:
 
       - name: Build
         run: |
-          apt-get install axel xorriso cd-boot-images-amd64 chroot squashfs-tools -y
+          sudo apt-get install axel xorriso cd-boot-images-amd64 chroot squashfs-tools -y
           echo "Free space:"
-          df -h
-          source fetch_build.conf && axel "DOWNLOAD_ISO" --output="ubuntu.iso"
+          sudo df -h
+          sudo source fetch_build.conf && axel "DOWNLOAD_ISO" --output="ubuntu.iso"
           chmod +x ./build/build.sh ./build/switch.sh
-          make build.iso
-          rm -rf ./ubuntu.iso
+          sudo make build.iso
+          sudo rm -rf ./ubuntu.iso
       - uses: "marvinpinto/action-automatic-releases@latest"
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
