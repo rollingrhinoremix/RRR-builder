@@ -7,19 +7,19 @@ jobs:
     name: Build os
     runs-on: ubuntu-20.04
     steps:
-      - name: Maximize disk space
-        uses: easimon/maximize-build-space@master
-        with:
-          swap-size-mb: 1524
-          remove-dotnet: 'true'
-          remove-android: 'true'
-
       - name: Build
         run: |
-           sudo apt install git
-           git clone "https://github.com/cat-master21/RRR-builder.git" && cd ./RRR-builder
-           chmod +x ./CI.sh
-           sudo bash ./CI.sh
+         sudo apt-get update -y
+         sudo apt-get dist-upgrade
+         sudo apt-get install axel xorriso coreutils squashfs-tools -y
+         wget "http://mirrors.kernel.org/ubuntu/pool/main/c/cd-boot-images-amd64/cd-boot-images-amd64_17_all.deb"
+         sudo dpkg -i "cd-boot-images-amd64_17_all.deb"
+         rm -rf "./cd-boot-images-amd64_17_all.deb"
+         source fetch_build.conf && axel "DOWNLOAD_ISO" --output="ubuntu.iso"
+         chmod +x ./build/build.sh ./build/switch.sh
+         sudo df -h
+         sudo make build.iso
+         rm -rf ./ubuntu.iso
       - uses: "marvinpinto/action-automatic-releases@latest"
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
