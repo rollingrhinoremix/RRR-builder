@@ -20,6 +20,7 @@ jobs:
          wget -nv "http://mirrors.kernel.org/ubuntu/pool/main/c/cd-boot-images-amd64/cd-boot-images-amd64_17_all.deb"
          sudo dpkg -i "cd-boot-images-amd64_17_all.deb"
          rm -rf "./cd-boot-images-amd64_17_all.deb"
+         cd ~/
          sudo git clone "https://github.com/cat-master21/RRR-builder.git" && cd ./RRR-builder
          sudo chmod +x ./fetch_build ./build/build.sh ./build/switch.sh
          sudo ./fetch_build
@@ -29,5 +30,6 @@ jobs:
          cd ../
       - uses: actions/upload-artifact@v3.0.0
         with:
-          path: ./RRR-builder/
+          name: "rolling-rhino-OS"
+          path: ~/RRR-builder/
           retention-days: 3
