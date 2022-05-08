@@ -24,10 +24,12 @@ jobs:
          sudo git clone "https://github.com/cat-master21/RRR-builder.git" && cd ./RRR-builder
          sudo chmod +x ./fetch_build ./build/build.sh ./build/switch.sh
          sudo ./fetch_build
+         ls
          sudo rm -rf ./ubuntu.iso
          source buld.conf && ls | grep -v "$OUT_ISO" | xargs sudo rm -rf
          sudo rm -rf ./.edit.timestamp ./.enter.timestamp ./.git
          cd ../
+         ls
       - uses: actions/upload-artifact@v3.0.0
         with:
           name: "rolling-rhino-OS"
