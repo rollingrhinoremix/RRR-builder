@@ -6,6 +6,8 @@ jobs:
   build:
     name: Build OS
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: Build
         run: |
@@ -14,21 +16,18 @@ jobs:
          sudo rm -rf /opt/ghc
          sudo rm -rf "/usr/local/share/boost"
          sudo rm -rf "$AGENT_TOOLSDIRECTORY"
-         sudo apt-get update -y
-         sudo apt-get dist-upgrade
          sudo apt-get install xorriso coreutils squashfs-tools git -y
-         wget "http://mirrors.kernel.org/ubuntu/pool/main/c/cd-boot-images-amd64/cd-boot-images-amd64_17_all.deb"
+         wget -nv "http://mirrors.kernel.org/ubuntu/pool/main/c/cd-boot-images-amd64/cd-boot-images-amd64_17_all.deb"
          sudo dpkg -i "cd-boot-images-amd64_17_all.deb"
          rm -rf "./cd-boot-images-amd64_17_all.deb"
          sudo git clone "https://github.com/cat-master21/RRR-builder.git" && cd ./RRR-builder
          sudo chmod +x ./fetch_build ./build/build.sh ./build/switch.sh
          sudo ./fetch_build
-         sudo df -h
          sudo rm -rf ./ubuntu.iso
-      - uses: "marvinpinto/action-automatic-releases@v1.2.1"
+         source buld.conf && ls | grep -v "$OUT_ISO" | xargs sudo rm -rf
+         sudo rm -rf ./.edit.timestamp ./.enter.timestamp ./.git
+         cd ../
+      - name: Upload Build Artifact
+        uses: actions/upload-artifact@v3.0.0
         with:
-          repo_token: "${{ secrets.GITHUB_TOKEN }}"
-          automatic_release_tag: "continuous-generic"
-          prerelease: false
-          title: "Rolling Rhino generic release"
-          files: rolling-rhino-$(date -I).iso
+          path: ./RRR-builder/
