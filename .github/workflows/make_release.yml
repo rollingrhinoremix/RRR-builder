@@ -22,6 +22,7 @@ jobs:
          rm -rf "./cd-boot-images-amd64_17_all.deb"
          sudo git clone "https://github.com/cat-master21/RRR-builder.git" && cd ./RRR-builder
          source fetch_build.conf && axel "$DOWNLOAD_ISO"
+         source fetch_build.conf && mv -f $DOWNLOAD_ISO ./ubuntu.iso
          chmod +x ./build/build.sh ./build/switch.sh
          sudo df -h
          sudo make build.iso
