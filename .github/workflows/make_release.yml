@@ -27,9 +27,10 @@ jobs:
          ls
          sudo rm -rf ./ubuntu.iso
          source buld.conf && ls | grep -v "$OUT_ISO" | xargs sudo rm -rf
-         sudo rm -rf ./.edit.timestamp ./.enter.timestamp ./.git
-         cd ../
+         sudo shopt -s extglob
+         sudo rm -rf !(*.iso|*.md5sum)
          ls
+         cd ../
       - uses: actions/upload-artifact@v3.0.0
         with:
           name: "rolling-rhino-OS"
