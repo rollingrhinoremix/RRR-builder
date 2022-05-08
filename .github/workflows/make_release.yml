@@ -29,4 +29,4 @@ jobs:
           automatic_release_tag: "continuous-generic"
           prerelease: false
           title: "Rolling Rhino generic release"
-          files: *.iso
+          files: rolling-rhino-$(date -I).iso
