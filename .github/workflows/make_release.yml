@@ -30,6 +30,7 @@ jobs:
          cd ../
       - uses: actions/upload-artifact@v3.0.0
         with:
-          name: "rolling-rhino-OS"
+          name: "rolling-rhino-generic"
           path: ~/RRR-builder/
           retention-days: 3
+          if-no-files-found: error
