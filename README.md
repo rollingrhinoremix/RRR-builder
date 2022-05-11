@@ -1,8 +1,12 @@
 ## ISO build system for Rolling Rhino Remix
 ### How to install
-you need to have `cd-boot-images-amd64` and `xorriso`
-next you can `chmod +x ./fetch_build && ./fetch_build`
-to build the entire iso. after you can do `sudo make clean` to remove stuff.
+you need to have 
+- `cd-boot-images-amd64`
+- `xorriso`
+- `axel` (optional, for faster downloads)
+- GNU Coreutils
+next `chmod +x ./fetch_build && ./fetch_build` to build the entire iso.
+After do `sudo make clean` to clean empty files.
 to build a different spin of Rolling Rhino Remix, switch branches.
 
 
@@ -26,7 +30,7 @@ compressed to a iso with setttings from `build.conf`. and last thing is a md5 of
 
 ### How to create your own spin
 the files you'll need to edit are build.conf, grub.cfg, loopback.cfg, files in `./build`,
-and maybe fetch_build.conf.
+./.github/make_release.yml and maybe fetch_build.conf.
 This may look intimidating but don't worry.
 for loopback.cfg and grub.cfg all you have to do is edit the names from
 `Rolling Rhino` to whatever the name of os is. Currently this will be automated in future
@@ -36,11 +40,14 @@ Next `build.conf` I think this is self explaintory but this is name of os, disk 
 and the name if outputting .iso.
 next the files in `./build`, the `build.sh` is used for startup generally this is used
 in the middle to remove gnome packages and stuff but it is okay if you do it in the
-`switch.sh` which converts your install to the os you see it as.
+`switch.sh` which converts your install to the os. For `.github/make_release.yml` this
+is if you want to use github runners but if not then this file isn't needed. Change 
+the branch your cloning and at the end for uploading artifacts section you may want to
+change the name from rolling-rhino-generic.
 
 
 ### Suggestions
 If you want to create a unnoficial spin,
 you can create a pr and create a new branch for the spin.
-If you don't know how but have suggestions create a issue
+If you don't know how but have suggestions create a issue for your idea
 but know that most ideas I'd probably not want to do and maintain and thus close issue.
