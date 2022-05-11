@@ -5,7 +5,7 @@ you need to have
 - `xorriso`
 - `axel` (optional, for faster downloads)
 - GNU Coreutils
-next `chmod +x ./fetch_build && ./fetch_build` to build the entire iso.
+ next `chmod +x ./fetch_build && ./fetch_build` to build the entire iso.
 After do `sudo make clean` to clean empty files.
 to build a different spin of Rolling Rhino Remix, switch branches.
 
