@@ -11,7 +11,7 @@ source fetch_build.conf
 if command -v axel 2> /dev/null; then
 		[ -z "$DOWNLOAD_ISO" ] && axel -o ubuntu.iso "https://releases.ubuntu.com/$CODENAME/ubuntu-$RELEASE-desktop-$ARCH.iso" || axel -o ubuntu.iso "$DOWNLOAD_ISO"
 	else
-		[ -z "$DOWNLOAD_ISO" ] && wget -O ubuntu.iso "https://releases.ubuntu.com/$CODENAME/ubuntu-$RELEASE-desktop-$ARCH.iso" || wget -O ubuntu.iso "$DOWNLOAD_ISO"
-	fi
+		[ -z "$DOWNLOAD_ISO" ] && wget -q -O ubuntu.iso "https://releases.ubuntu.com/$CODENAME/ubuntu-$RELEASE-desktop-$ARCH.iso" || wget -q -O ubuntu.iso "$DOWNLOAD_ISO"
+fi
 
 sudo make build.iso
