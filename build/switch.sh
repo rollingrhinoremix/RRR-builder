@@ -11,8 +11,8 @@ wget -q "https://github.com/rollingrhinoremix/distro/raw/main/.sources.sh"
 bash ./.sources.sh
 
 apt-get clean -y
-#from rhino update
-{ apt-get --allow-releaseinfo-change update -yq; apt-get --allow-releaseinfo-change dist-upgrade -yq; }
+apt-get --allow-releaseinfo-change update -yq
+apt-get --allow-releaseinfo-change dist-upgrade -yq
 
 rm -rf ~/tmp
 cd /
