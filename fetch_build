@@ -8,6 +8,6 @@ rm -f ubuntu.iso
 
 source fetch_build.conf
 
-[ -z "$DOWNLOAD_ISO" ] && wget -O ubuntu.iso "https://releases.ubuntu.com/$CODENAME/ubuntu-$RELEASE-desktop-$ARCH.iso" || wget -O ubuntu.iso "$DOWNLOAD_ISO"
+[ -z "$DOWNLOAD_ISO" ] && wget -q -O ubuntu.iso "https://releases.ubuntu.com/$CODENAME/ubuntu-$RELEASE-desktop-$ARCH.iso" || wget -q -O ubuntu.iso "$DOWNLOAD_ISO"
 
 sudo make build.iso
