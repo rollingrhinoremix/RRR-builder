@@ -1,0 +1,9 @@
+edit/
+extract-cd/
+mnt/
+squashfs-root/
+.edit.timestamp
+.enter.timestamp
+*.iso
+*.md5sum
+.hosts.backup
