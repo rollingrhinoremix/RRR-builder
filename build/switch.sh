@@ -1,6 +1,6 @@
 #!/bin/sh
 
-apt-get install git -yq
+apt-get install git zfs-dkms -yq
 mkdir -p ~/creation_script && cd ~/creation_script
 wget -q "https://github.com/rollingrhinoremix/creation_script/raw/main/script.sh"
 bash ./script.sh
