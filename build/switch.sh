@@ -1,6 +1,6 @@
 #!/bin/sh
 
-apt-get install git zfs-dkms -yq
+apt-get install git -yq
 mkdir -p ~/creation_script/assets && cd ~/creation_script
 git clone https://github.com/rollingrhinoremix/distro ~/creation_script/assets
 apt-get --allow-releaseinfo-change update -y
