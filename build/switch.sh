@@ -32,11 +32,9 @@ wget -q --show-progress --progress=bar:force https://kernel.ubuntu.com/~kernel-p
 # Install the packages via apt
 sudo apt install ./*.deb
 rm -rf ~/creation_script
+cd /
 #Install the updated stuff...
 apt-get clean -y
 apt-get --allow-releaseinfo-change update -y
 apt-get --allow-releaseinfo-change dist-upgrade -y
 apt-get autopurge -y
-
-rm -rf ~/tmp
-cd /
