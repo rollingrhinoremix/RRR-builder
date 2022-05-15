@@ -19,7 +19,7 @@ mv ~/creation_script/assets/10_ubuntu-settings.gschema.override /usr/share/glib-
 # Install rhino-config onto system
 mkdir ~/creation_script/rhino-config
 cd ~/creation_script/rhino-config
-wget https://github.com/rollingrhinoremix/rhino-config/releases/download/v2.0.1/rhino-config
+wget -nv https://github.com/rollingrhinoremix/rhino-config/releases/download/v2.0.1/rhino-config
 chmod +x ~/creation_script/rhino-config/rhino-config
 mv ~/creation_script/rhino-config/rhino-config /usr/bin
 # Download the mainline Linux kernel packages
