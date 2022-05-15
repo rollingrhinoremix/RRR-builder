@@ -1,8 +1,6 @@
-## **This project has now moved under Rolling Rhino Remix organization at:** https://github.com/rollingrhinoremix/RRR-builder-full
-
-## ISO build system for Rolling Rhino Remix
+## Official ISO build system for Rolling Rhino Remix, full version
 ### How to install
-you need to have 
+Firsat you need to have 
 - `cd-boot-images-amd64`
 - `xorriso`
 - `axel` (optional, for faster downloads)
@@ -50,7 +48,5 @@ change the name from rolling-rhino-generic.
 
 
 ### Suggestions
-If you want to create a unnoficial spin,
-you can create a pr and create a new branch for the spin.
-If you don't know how but have suggestions create a issue for your idea
-but know that most ideas I'd probably not want to do and maintain and thus close issue.
+If you want to create a unnoficial spin, you can easily fork this repo and create your
+own remix of Rolling Rhino Remix
