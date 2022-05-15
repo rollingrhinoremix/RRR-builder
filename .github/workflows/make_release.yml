@@ -20,14 +20,14 @@ jobs:
          sudo dpkg -i "cd-boot-images-amd64_17_all.deb"
          rm -rf "./cd-boot-images-amd64_17_all.deb"
          cd ~/
-         sudo git clone -b RRR-full "https://github.com/rollingrhinoremix/RRR-builder-full.git" && cd ./RRR-builder-full
+         sudo git clone -b RRR-full "https://github.com/rollingrhinoremix/RRR-builder-desktop.git" && cd ./RRR-builder-desktop
          sudo chmod +x ./fetch_build ./build/build.sh ./build/switch.sh
          sudo ./fetch_build
          sudo rm -rf ./ubuntu.iso
          sudo find . -maxdepth 1 ! \( -name "*.iso*" -o -name '.' -o -name '..' \) -exec sudo rm -rf {} \;
       - uses: actions/upload-artifact@v3.0.0
         with:
-          name: "rolling-rhino-generic"
-          path: ~/RRR-builder/
+          name: "rolling-rhino-desktop"
+          path: ~/RRR-builder-desktop/
           retention-days: 3
           if-no-files-found: error
