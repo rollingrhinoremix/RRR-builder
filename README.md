@@ -1,6 +1,6 @@
-## Official ISO build system for Rolling Rhino Remix, full version
+## Official ISO build system for Rolling Rhino Remix, desktop version
 ### How to install
-Firsat you need to have 
+First you need 
 - `cd-boot-images-amd64`
 - `xorriso`
 - `axel` (optional, for faster downloads)
