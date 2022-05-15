@@ -89,6 +89,10 @@ build.iso-zstd: build.iso
 	source build.conf && zstd -16 "$$OUT_ISO"
 
 clean:
+	umount edit/dev/pts || true
+	umount edit/dev || true
+	umount edit/run || true
+	umount mnt || true
 	@rm -rf edit extract-cd mnt squashfs-root .edit.timestamp .enter.timestamp .hosts.backup
 
 clean-iso: clean
