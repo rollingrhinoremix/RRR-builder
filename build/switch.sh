@@ -6,6 +6,9 @@ git clone https://github.com/rollingrhinoremix/distro ~/creation_script/assets
 apt-get --allow-releaseinfo-change update -y
 apt-get --allow-releaseinfo-change dist-upgrade -y
 apt-get autopurge -y
+wget -q "https://raw.githubusercontent.com/rollingrhinoremix/rhino-deinst/master/rhino-deinst"
+chmod +x ./rhino-deinst
+mv ./rhino-deinst /usr/bin/rhino-deinst && rm rf ./rhino-deinst
 mv ~/creation_script/assets/rolling_rhino.png /usr/share/backgrounds
 mv ~/creation_script/assets/rolling_rhino-dark.png /usr/share/backgrounds
 mv ~/creation_script/assets/.bashrc /etc/skel
