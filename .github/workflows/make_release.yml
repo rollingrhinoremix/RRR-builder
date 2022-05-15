@@ -20,7 +20,7 @@ jobs:
          sudo dpkg -i "cd-boot-images-amd64_17_all.deb"
          rm -rf "./cd-boot-images-amd64_17_all.deb"
          cd ~/
-         sudo git clone -b RRR-full "https://github.com/rollingrhinoremix/RRR-builder-desktop.git" && cd ./RRR-builder-desktop
+         sudo git clone -b RRR-desktop "https://github.com/rollingrhinoremix/RRR-builder-desktop.git" && cd ./RRR-builder-desktop
          sudo chmod +x ./fetch_build ./build/build.sh ./build/switch.sh
          sudo ./fetch_build
          sudo rm -rf ./ubuntu.iso
