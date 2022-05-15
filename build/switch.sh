@@ -37,4 +37,16 @@ cd /
 apt-get clean -y
 apt-get --allow-releaseinfo-change update -y
 apt-get --allow-releaseinfo-change dist-upgrade -y
+echo '<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE wallpapers SYSTEM "gnome-wp-list.dtd">
+<wallpapers>
+  <wallpaper>
+    <name>Rolling-Rhino</name>
+    <name xml:lang="en_GB">Rolling-Rhino</name>
+    <filename>/usr/share/backgrounds/rolling_rhino.png</filename>
+    <filename-dark>/usr/share/backgrounds/rolling_rhino-dark.png</filename-dark>
+    <options>zoom</options>
+    <shade_type>solid</shade_type>
+  </wallpaper>
+</wallpapers>' | tee -a /usr/share/gnome-background-properties/rolling-rhino-wallpapers.xml
 apt-get autopurge -y
