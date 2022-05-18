@@ -1,4 +1,4 @@
-## Official ISO build system for Rolling Rhino Remix, desktop version
+## Official ISO build system for Rolling Rhino Remix
 ### How to install
 First you need 
 - `cd-boot-images-amd64`
@@ -8,13 +8,12 @@ First you need
 
 Next `chmod +x ./fetch_build && ./fetch_build` to build the entire iso.
 After do `sudo make clean` to clean empty files.
-To build a different spin of Rolling Rhino Remix, switch branches.
 
 
 ### In detail
 First `fetch_build` downloads a file from `fetch_build.conf` and names it `ubuntu.iso` which
 is the base for all operations. Next it runs `sudo make`. This defaults to building the ISO.
-Next the stuff from [makefile](https://github.com/rollingrhinoremix/RRR-builder-desktop/blob/RRR-desktop/Makefile) begins 
+Next the stuff from [makefile](https://github.com/rollingrhinoremix/RRR-builder/blob/master/Makefile) begins 
 where it firsts starts by uncompressing the iso/cd image 
 (ubuntu.iso from fetch_build and fetch_build.conf) to `extract-cd` then 
 uncompresses the actual stuff you install inside of it to `./edit`.
@@ -38,7 +37,7 @@ for loopback.cfg and grub.cfg all you have to do is edit the names from
 the `fetch_build.conf` is where the base iso is from and generally it uses ubiquity,
 and is apt-based but doesn't have to be and generally it can be untouched most of time.
 Next `build.conf` I think this is self explaintory but this is name of os, disk info
-and the name if outputting .iso.
+and the name of the outputting .iso.
 next the files in `./build`, the `build.sh` is used for startup generally this is used
 in the middle to remove gnome packages and stuff but it is okay if you do it in the
 `switch.sh` which converts your install to the os. For `.github/make_release.yml` this
