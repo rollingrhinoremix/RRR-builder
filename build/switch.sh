@@ -1,7 +1,7 @@
 #!/bin/sh
 
 apt-get install git -yq
-mkdir -p ~/creation_script/assets && cd ~/creation_script
+mkdir -p ~/creation_script/assets && cd ~/creation_script || exit
 git clone https://github.com/rollingrhinoremix/distro ~/creation_script/assets
 apt-get --allow-releaseinfo-change update -y
 apt-get --allow-releaseinfo-change dist-upgrade -y
@@ -21,13 +21,13 @@ rm -rf /usr/share/glib-2.0/schemas/10_ubuntu-settings.gschema.override
 mv ~/creation_script/assets/10_ubuntu-settings.gschema.override /usr/share/glib-2.0/schemas
 # Install rhino-config onto system
 mkdir ~/creation_script/rhino-config
-cd ~/creation_script/rhino-config
+cd ~/creation_script/rhino-config || exit
 wget -nv https://github.com/rollingrhinoremix/rhino-config/releases/download/v2.0.1/rhino-config
 chmod +x ~/creation_script/rhino-config/rhino-config
 mv ~/creation_script/rhino-config/rhino-config /usr/bin
 # Download the mainline Linux kernel packages
 mkdir ~/creation_script/kernel
-cd ~/creation_script/kernel
+cd ~/creation_script/kernel || exit
 wget -q --show-progress --progress=bar:force https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.17.7/amd64/linux-headers-5.17.7-051707-generic_5.17.7-051707.202205121146_amd64.deb
 wget -q --show-progress --progress=bar:force https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.17.7/amd64/linux-headers-5.17.7-051707_5.17.7-051707.202205121146_all.deb
 wget -q --show-progress --progress=bar:force https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.17.7/amd64/linux-image-unsigned-5.17.7-051707-generic_5.17.7-051707.202205121146_amd64.deb
