@@ -3,7 +3,7 @@
 # Initialise the development by grabbing assets
 apt-get install git -yq
 mkdir -p ~/creation/assets && cd ~/creation || exit
-git clone https://github.com/rollingrhinoremix/assets-desktop ~/creation/assets
+git clone https://github.com/rollingrhinoremix/assets ~/creation/assets
 # Perform system upgrade
 apt-get update -y
 apt-get upgrade -y
