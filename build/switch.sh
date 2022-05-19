@@ -26,7 +26,7 @@ mv ~/creation/rhino-config/rhino-config /usr/bin
 # Install rhino-deinst onto system
 mkdir ~/creation/rhino-deinst
 cd ~/creation/rhino-deinst
-wget https://raw.githubusercontent.com/rollingrhinoremix/rhino-deinst/master/rhino-deinst
+wget https://github.com/rollingrhinoremix/rhino-deinst/releases/download/1.0.0/rhino-deinst
 chmod +x ~/creation/rhino-deinst/rhino-deinst
 mv ~/creation/rhino-deinst/rhino-deinst /usr/bin
 #Install the updated stuff...
