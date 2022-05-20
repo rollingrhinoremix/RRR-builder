@@ -21,6 +21,7 @@ jobs:
          rm -rf "./cd-boot-images-amd64_17_all.deb"
          cd ~/
          sudo git clone -b master "https://github.com/rollingrhinoremix/RRR-builder.git" && cd ./RRR-builder
+         sudo git checkout remotes/origin/feat/minimal
          sudo chmod +x ./fetch_build ./build/build.sh ./build/switch.sh
          sudo ./fetch_build
          sudo rm -rf ./ubuntu.iso
