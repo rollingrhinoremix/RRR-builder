@@ -43,6 +43,10 @@ enter: .edit.timestamp
 extract-cd/casper/filesystem.manifest: .edit.timestamp .enter.timestamp
 	chmod +w extract-cd/casper/filesystem.manifest
 	chroot edit dpkg-query -W --showformat='$${Package} $${Version}\n' > extract-cd/casper/filesystem.manifest
+	sed -ri 's/\s+//g' extract-cd/casper/filesystem.manifest-minimal-remove
+	echo "$(cat minimal-option)" >> extract-cd/casper/filesystem.manifest-minimal-remove
+	printf "$(awk '!seen[$0]++' extract-cd/casper/filesystem.manifest-minimal-remove)" > extract-cd/casper/filesystem.manifest-minimal-remove
+	sed -i '${s/$/  /}' extract-cd/casper/filesystem.manifest-minimal-remove
 
 extract-cd/casper/filesystem.squashfs: extract-cd/casper/filesystem.manifest
 	- rm extract-cd/casper/filesystem.squashfs
