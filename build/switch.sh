@@ -20,7 +20,7 @@ mv ~/creation/assets/10_ubuntu-settings.gschema.override /usr/share/glib-2.0/sch
 # Install rhino-config onto system 
 mkdir ~/creation/rhino-config
 cd ~/creation/rhino-config
-wget https://github.com/rollingrhinoremix/rhino-config/releases/download/v2.0.1/rhino-config
+wget https://github.com/rollingrhinoremix/rhino-config/releases/latest/download/rhino-config
 chmod +x ~/creation/rhino-config/rhino-config
 mv ~/creation/rhino-config/rhino-config /usr/bin
 # Install rhino-deinst onto system
