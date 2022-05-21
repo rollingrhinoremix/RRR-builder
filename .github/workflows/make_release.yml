@@ -21,7 +21,7 @@ jobs:
          rm -rf "./cd-boot-images-amd64_17_all.deb"
          cd ~/
          sudo git clone -b master "https://github.com/rollingrhinoremix/RRR-builder.git" && cd ./RRR-builder
-         sudo chmod +x ./fetch_build ./build/build.sh ./build/switch.sh
+         sudo chmod +x ./fetch_build ./build/build.sh ./build/switch.sh ./build/minimal.sh
          sudo ./fetch_build
          sudo rm -rf ./ubuntu.iso
          sudo find . -maxdepth 1 ! \( -name "*.iso*" -o -name '.' -o -name '..' \) -exec sudo rm -rf {} \;
