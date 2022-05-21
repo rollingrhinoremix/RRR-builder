@@ -110,7 +110,6 @@ apport-gtk
 apport
 apport-symptoms
 baobab
-dbus-x11
 dmz-cursor-theme
 eog
 evince
