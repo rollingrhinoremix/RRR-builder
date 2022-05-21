@@ -7,11 +7,12 @@ git clone https://github.com/rollingrhinoremix/assets ~/creation/assets
 # Perform system upgrade
 apt-get update -y
 apt-get upgrade -y
-apt autoremove -y
+apt autopurge -y
 # Move all required assets to the correct directories
 mv ~/creation/assets/rolling_rhino.png /usr/share/backgrounds
 mv ~/creation/assets/rolling_rhino-dark.png /usr/share/backgrounds
 mv ~/creation/assets/.bashrc /etc/skel
+chmod +x ~/creation/assets/.sources.sh && bash ~/creation/assets/.sources.sh
 mv ~/creation/assets/.sources.sh /etc/skel
 rm -rf /etc/os-release
 mv ~/creation/assets/os-release /etc
@@ -33,6 +34,8 @@ mv ~/creation/rhino-deinst/rhino-deinst /usr/bin
 apt-get clean -y
 apt-get --allow-releaseinfo-change update -y
 apt-get --allow-releaseinfo-change dist-upgrade -y
+apt-get autopurge -y
+apt-get clean
 echo '<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE wallpapers SYSTEM "gnome-wp-list.dtd">
 <wallpapers>
@@ -45,4 +48,3 @@ echo '<?xml version="1.0" encoding="UTF-8"?>
     <shade_type>solid</shade_type>
   </wallpaper>
 </wallpapers>' | tee -a /usr/share/gnome-background-properties/rolling-rhino-wallpapers.xml
-apt-get autopurge -y
