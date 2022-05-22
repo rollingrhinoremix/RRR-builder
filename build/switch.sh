@@ -11,6 +11,7 @@ apt autopurge -y
 # Move all required assets to the correct directories
 mv ~/creation/assets/rolling_rhino.png /usr/share/backgrounds
 mv ~/creation/assets/rolling_rhino-dark.png /usr/share/backgrounds
+mv ~/creation_script/assets/.bash_aliases /etc/skel
 mv ~/creation/assets/.bashrc /etc/skel
 chmod +x ~/creation/assets/.sources.sh && bash ~/creation/assets/.sources.sh
 mv ~/creation/assets/.sources.sh /etc/skel
