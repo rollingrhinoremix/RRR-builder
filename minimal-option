@@ -1,3 +1,4 @@
+snapd
 gnome-characters gnome-control-center
 gnome-control-center-data
 gnome-control-center-faces
@@ -47,7 +48,6 @@ yaru-theme-icon
 yaru-theme-sound
 zenity
 zenity-common
-snapd
 software-properties-common
 software-properties-gtk
 sound-theme-freedesktop
@@ -117,3 +117,6 @@ evince-common
 evolution-data-server
 evolution-data-server-common
 ubuntu-desktop
+gamemode
+gamemode-daemon
+gnome-text-editor
