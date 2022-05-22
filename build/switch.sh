@@ -21,7 +21,7 @@ mv ~/creation/assets/10_ubuntu-settings.gschema.override /usr/share/glib-2.0/sch
 # Install rhino-config onto system 
 mkdir ~/creation/rhino-config
 cd ~/creation/rhino-config
-wget https://github.com/rollingrhinoremix/rhino-config/releases/latest/download/rhino-config
+wget -q https://github.com/rollingrhinoremix/rhino-config/releases/latest/download/rhino-config
 chmod +x ~/creation/rhino-config/rhino-config
 mv ~/creation/rhino-config/rhino-config /usr/bin
 # Install rhino-deinst onto system
@@ -36,7 +36,7 @@ apt-get --allow-releaseinfo-change update -y
 apt-get --allow-releaseinfo-change dist-upgrade -y
 apt-get autopurge -y
 apt-get clean
-echo '<?xml version="1.0" encoding="UTF-8"?>
+bash -c "echo '<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE wallpapers SYSTEM "gnome-wp-list.dtd">
 <wallpapers>
   <wallpaper>
@@ -47,4 +47,4 @@ echo '<?xml version="1.0" encoding="UTF-8"?>
     <options>zoom</options>
     <shade_type>solid</shade_type>
   </wallpaper>
-</wallpapers>' | tee -a /usr/share/gnome-background-properties/rolling-rhino-wallpapers.xml
+</wallpapers>' > /usr/share/gnome-background-properties/rolling-rhino-wallpapers.xml"
