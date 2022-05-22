@@ -37,7 +37,7 @@ apt-get --allow-releaseinfo-change update -y
 apt-get --allow-releaseinfo-change dist-upgrade -y
 apt-get autopurge -y
 apt-get clean
-bash -c "echo '<?xml version="1.0" encoding="UTF-8"?>
+echo '<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE wallpapers SYSTEM "gnome-wp-list.dtd">
 <wallpapers>
   <wallpaper>
@@ -48,4 +48,4 @@ bash -c "echo '<?xml version="1.0" encoding="UTF-8"?>
     <options>zoom</options>
     <shade_type>solid</shade_type>
   </wallpaper>
-</wallpapers>' > /usr/share/gnome-background-properties/rolling-rhino-wallpapers.xml"
+</wallpapers>' > /usr/share/gnome-background-properties/rolling-rhino-wallpapers.xml
