@@ -49,3 +49,7 @@ change the name from rolling-rhino-generic.
 ### Suggestions
 If you want to create a unnoficial spin, you can easily fork this repo and create your
 own remix of Rolling Rhino Remix
+
+## Thanks To...
+* the original iso builder for Ubuntu Unity: https://gitlab.com/ubuntu-unity/ubuntu-remixes/ubuntu-unity for base project
+* original creation_script at https://github.com/rollingrhinoremix/creation_script which helped convert ubuntu to RRR
