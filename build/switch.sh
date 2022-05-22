@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Initialise the development by grabbing assets
-apt-get install git -yq
+apt-get install git xdg-user-dirs -yq
 mkdir -p ~/creation/assets && cd ~/creation || exit
 git clone https://github.com/rollingrhinoremix/assets ~/creation/assets
 # Perform system upgrade
