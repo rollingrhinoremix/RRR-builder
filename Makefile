@@ -47,7 +47,7 @@ extract-cd/casper/filesystem.manifest: .edit.timestamp .enter.timestamp
 
 extract-cd/casper/filesystem.squashfs: extract-cd/casper/filesystem.manifest
 	- rm extract-cd/casper/filesystem.squashfs
-	mksquashfs edit extract-cd/casper/filesystem.squashfs -b 1048576 -comp xz -always-use-fragments
+	mksquashfs edit extract-cd/casper/filesystem.squashfs -b 1048576 -comp zstd -always-use-fragments
 
 extract-cd/casper/filesystem.size: extract-cd/casper/filesystem.squashfs
 	printf $$(sudo du -sx --block-size=1 edit | cut -f1) > extract-cd/casper/filesystem.size
