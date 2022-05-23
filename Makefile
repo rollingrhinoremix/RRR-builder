@@ -25,6 +25,7 @@ enter: .edit.timestamp
 	rm -rf edit/build/
 	rm -rf edit/root/.bash_history
 	rm -rf edit/root/.cache
+	rm -rf extract-cd/.disk/base_installable
 	touch .enter.timestamp
 
 .edit.timestamp:
