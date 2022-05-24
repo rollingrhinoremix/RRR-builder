@@ -49,3 +49,4 @@ echo '<?xml version="1.0" encoding="UTF-8"?>
     <shade_type>solid</shade_type>
   </wallpaper>
 </wallpapers>' > /usr/share/gnome-background-properties/rolling-rhino-wallpapers.xml
+rm -rf /usr/lib/ubiquity/apt-setup/generators/50mirror.ubuntu /usr/lib/ubiquity/apt-setup/generators/91security
