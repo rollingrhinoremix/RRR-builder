@@ -15,6 +15,11 @@ mv ~/creation_script/assets/.bash_aliases /etc/skel
 mv ~/creation/assets/.bashrc /etc/skel
 chmod +x ~/creation/assets/.sources.sh && bash ~/creation/assets/.sources.sh
 mv ~/creation/assets/.sources.sh /etc/skel
+# Fix for minimal disk image by copying files to home
+cp /etc/skel/.bash_aliases ~
+cp /etc/skel/.bashrc ~
+cp /etc/skel/.sources.sh ~
+# Move system files to correct directories
 rm -rf /etc/os-release
 mv ~/creation/assets/os-release /etc
 rm -rf /usr/share/glib-2.0/schemas/10_ubuntu-settings.gschema.override
