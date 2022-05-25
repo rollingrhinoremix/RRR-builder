@@ -41,6 +41,8 @@ apt-get autopurge -y
 apt-get clean
 sed -i 's/kinetic/devel/g' /etc/os-release
 sed -i 's/kinetic/devel/g' /etc/lsb-release
+sed -i 's/kinetic/devel/g' /usr/lib/os-release
+#So much release info that are mostly same!
 sed -i 's/PRETTY_NAME="Ubuntu Kinetic Kudu (development branch)"/PRETTY_NAME="Rolling Rhino Remix"/g' /etc/os-release
 sed -i 's%HOME_URL="https://www.ubuntu.com/"%HOME_URL="https://www.rollingrhino.org"%g' /etc/os-release
 echo '<?xml version="1.0" encoding="UTF-8"?>
