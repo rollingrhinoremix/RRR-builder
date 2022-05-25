@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Initialise the development by grabbing assets
-apt-get install git -yq
+apt-get install git xdg-user-dirs -yq
 mkdir -p ~/creation/assets && cd ~/creation || exit
 git clone https://github.com/rollingrhinoremix/assets ~/creation/assets
 # Perform system upgrade
@@ -15,6 +15,10 @@ mv ~/creation/assets/.bash_aliases /etc/skel
 mv ~/creation/assets/.bashrc /etc/skel
 chmod +x ~/creation/assets/.sources.sh && bash ~/creation/assets/.sources.sh
 mv ~/creation/assets/.sources.sh /etc/skel
+# Fix for minimal disk image by copying files to home
+cp /etc/skel/.bash_aliases ~
+cp /etc/skel/.bashrc ~
+cp /etc/skel/.sources.sh ~
 rm -rf /usr/share/glib-2.0/schemas/10_ubuntu-settings.gschema.override
 mv ~/creation/assets/10_ubuntu-settings.gschema.override /usr/share/glib-2.0/schemas
 # Install rhino-config onto system 

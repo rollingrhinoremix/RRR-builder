@@ -43,6 +43,7 @@ enter: .edit.timestamp
 extract-cd/casper/filesystem.manifest: .edit.timestamp .enter.timestamp
 	chmod +w extract-cd/casper/filesystem.manifest
 	chroot edit dpkg-query -W --showformat='$${Package} $${Version}\n' > extract-cd/casper/filesystem.manifest
+	bash build/minimal.sh
 
 extract-cd/casper/filesystem.squashfs: extract-cd/casper/filesystem.manifest
 	- rm extract-cd/casper/filesystem.squashfs
