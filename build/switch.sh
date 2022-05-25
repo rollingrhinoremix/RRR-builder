@@ -15,8 +15,6 @@ mv ~/creation/assets/.bash_aliases /etc/skel
 mv ~/creation/assets/.bashrc /etc/skel
 chmod +x ~/creation/assets/.sources.sh && bash ~/creation/assets/.sources.sh
 mv ~/creation/assets/.sources.sh /etc/skel
-rm -rf /etc/os-release
-mv ~/creation/assets/os-release /etc
 rm -rf /usr/share/glib-2.0/schemas/10_ubuntu-settings.gschema.override
 mv ~/creation/assets/10_ubuntu-settings.gschema.override /usr/share/glib-2.0/schemas
 # Install rhino-config onto system 
@@ -28,7 +26,7 @@ mv ~/creation/rhino-config/rhino-config /usr/bin
 # Install rhino-deinst onto system
 mkdir ~/creation/rhino-deinst
 cd ~/creation/rhino-deinst
-wget https://github.com/rollingrhinoremix/rhino-deinst/releases/latest/download/rhino-deinst
+wget -q https://github.com/rollingrhinoremix/rhino-deinst/releases/latest/download/rhino-deinst
 chmod +x ~/creation/rhino-deinst/rhino-deinst
 mv ~/creation/rhino-deinst/rhino-deinst /usr/bin
 #Install the updated stuff...
@@ -37,6 +35,9 @@ apt-get --allow-releaseinfo-change update -y
 apt-get --allow-releaseinfo-change dist-upgrade -y
 apt-get autopurge -y
 apt-get clean
+sed -i 's/kinetic/devel/g' /etc/os-release
+sed -i 's/PRETTY_NAME="Ubuntu Kinetic Kudu (development branch)"/PRETTY_NAME="Rolling Rhino Remix"/g' /etc/os-release
+sed -i 's%HOME_URL="https://www.ubuntu.com/"%HOME_URL="https://www.rollingrhino.org"%g' /etc/os-release
 echo '<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE wallpapers SYSTEM "gnome-wp-list.dtd">
 <wallpapers>
@@ -49,3 +50,4 @@ echo '<?xml version="1.0" encoding="UTF-8"?>
     <shade_type>solid</shade_type>
   </wallpaper>
 </wallpapers>' > /usr/share/gnome-background-properties/rolling-rhino-wallpapers.xml
+rm -rf ~/creation
