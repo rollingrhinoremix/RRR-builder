@@ -13,12 +13,6 @@ mv ~/creation/assets/rolling_rhino.png /usr/share/backgrounds
 mv ~/creation/assets/rolling_rhino-dark.png /usr/share/backgrounds
 mv ~/creation/assets/.bash_aliases /etc/skel
 mv ~/creation/assets/.bashrc /etc/skel
-chmod +x ~/creation/assets/.sources.sh && bash ~/creation/assets/.sources.sh
-mv ~/creation/assets/.sources.sh /etc/skel
-# Fix for minimal disk image by copying files to home
-cp /etc/skel/.bash_aliases ~
-cp /etc/skel/.bashrc ~
-cp /etc/skel/.sources.sh ~
 rm -rf /usr/share/glib-2.0/schemas/10_ubuntu-settings.gschema.override
 mv ~/creation/assets/10_ubuntu-settings.gschema.override /usr/share/glib-2.0/schemas
 # Install rhino-config onto system 
@@ -33,18 +27,18 @@ cd ~/creation/rhino-deinst
 wget -q https://github.com/rollingrhinoremix/rhino-deinst/releases/latest/download/rhino-deinst
 chmod +x ~/creation/rhino-deinst/rhino-deinst
 mv ~/creation/rhino-deinst/rhino-deinst /usr/bin
-#Install the updated stuff...
 apt-get clean -y
-apt-get --allow-releaseinfo-change update -y
-apt-get --allow-releaseinfo-change dist-upgrade -y
-apt-get autopurge -y
-apt-get clean
+sed -i 's/kinetic/devel/g' /etc/apt/sources.list
 sed -i 's/kinetic/devel/g' /etc/os-release
 sed -i 's/kinetic/devel/g' /etc/lsb-release
 sed -i 's/kinetic/devel/g' /usr/lib/os-release
 #So much release info that are mostly same!
 sed -i 's/PRETTY_NAME="Ubuntu Kinetic Kudu (development branch)"/PRETTY_NAME="Rolling Rhino Remix"/g' /etc/os-release
 sed -i 's%HOME_URL="https://www.ubuntu.com/"%HOME_URL="https://www.rollingrhino.org"%g' /etc/os-release
+apt-get --allow-releaseinfo-change update -y
+apt-get --allow-releaseinfo-change dist-upgrade -y
+apt-get autopurge -y
+apt-get clean
 echo '<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE wallpapers SYSTEM "gnome-wp-list.dtd">
 <wallpapers>
