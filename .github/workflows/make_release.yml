@@ -25,6 +25,11 @@ jobs:
          sudo ./fetch_build
          sudo rm -rf ./ubuntu.iso
          sudo find . -maxdepth 1 ! \( -name "*.iso*" -o -name '.' -o -name '..' \) -exec sudo rm -rf {} \;
+         source ~/RRR-builder/build.conf && gpg -o ~/RRR-builder/$OUT_ISO.sig -ab $OUT_ISO
+      - uses: crazy-max/ghaction-import-gpg@v5
+        with:
+          gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
+          passphrase: ${{ secrets.GPG_PASSPHRASE }}
       - uses: actions/upload-artifact@v3.0.0
         with:
           name: "rolling-rhino"
