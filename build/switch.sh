@@ -27,6 +27,16 @@ cd ~/creation/rhino-deinst
 wget -q https://github.com/rollingrhinoremix/rhino-deinst/releases/latest/download/rhino-deinst
 chmod +x ~/creation/rhino-deinst/rhino-deinst
 mv ~/creation/rhino-deinst/rhino-deinst /usr/bin
+# Install the latest Linux kernel (from Ubuntu mainline repositories)
+mkdir ~/creation/kernel
+cd ~/creation/kernel
+wget -q --show-progress --progress=bar:force https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.18/amd64/CHECKSUMS
+wget -q --show-progress --progress=bar:force https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.18/amd64/linux-headers-5.18.0-051800-generic_5.18.0-051800.202205222030_amd64.deb
+wget -q --show-progress --progress=bar:force https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.18/amd64/linux-headers-5.18.0-051800_5.18.0-051800.202205222030_all.deb
+wget -q --show-progress --progress=bar:force https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.18/amd64/linux-image-unsigned-5.18.0-051800-generic_5.18.0-051800.202205222030_amd64.deb
+wget -q --show-progress --progress=bar:force https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.18/amd64/linux-modules-5.18.0-051800-generic_5.18.0-051800.202205222030_amd64.deb
+sudo apt install ./*.deb -y
+# Clean up system files
 apt-get clean -y
 sed -i 's/kinetic/devel/g' /etc/apt/sources.list
 sed -i 's/kinetic/devel/g' /etc/os-release
