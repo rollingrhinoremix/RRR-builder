@@ -25,6 +25,10 @@ jobs:
          sudo ./fetch_build
          sudo rm -rf ./ubuntu.iso
          sudo find . -maxdepth 1 ! \( -name "*.iso*" -o -name '.' -o -name '..' \) -exec sudo rm -rf {} \;
+         echo ${{ secrets.GPG_PRIVATE_KEY }} | sudo tee ~/RRR-builder/private.pgp > /dev/null
+         echo ${{ secrets.GPG_PASSPHRASE }} | gpg --batch --allow-secret-key-import --import ~/RRR-builder/private.pgp
+         source ~/RRR-builder/build.conf && sudo gpg -o ~/RRR-builder/"$OUT_ISO".sig -ab ~/RRR-builder/"$OUT_ISO"
+         rm ~/RRR-builder/private.pgp
       - uses: actions/upload-artifact@v3.0.0
         with:
           name: "rolling-rhino"
