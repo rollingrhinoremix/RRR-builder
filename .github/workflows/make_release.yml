@@ -19,8 +19,6 @@ jobs:
          sudo rm -rf "/usr/local/share/boost"
          sudo rm -rf "$AGENT_TOOLSDIRECTORY"
          sudo apt-get install xorriso coreutils squashfs-tools git axel sed -y
-         echo "$KEY" | sudo tee ~/RRR-builder/private.pgp > /dev/null
-         echo "$PASSPHRASE" | gpg --batch --allow-secret-key-import --import ~/RRR-builder/private.pgp && rm ~/RRR-builder/private.pgp
          wget -nv "http://mirrors.kernel.org/ubuntu/pool/main/c/cd-boot-images-amd64/cd-boot-images-amd64_17_all.deb"
          sudo dpkg -i "cd-boot-images-amd64_17_all.deb"
          rm -rf "./cd-boot-images-amd64_17_all.deb"
@@ -30,6 +28,8 @@ jobs:
          sudo ./fetch_build
          sudo rm -rf ./ubuntu.iso
          sudo find . -maxdepth 1 ! \( -name "*.iso*" -o -name '.' -o -name '..' \) -exec sudo rm -rf {} \;
+         echo "$KEY" | sudo tee ~/RRR-builder/private.pgp > /dev/null
+         echo "$PASSPHRASE" | gpg --batch --allow-secret-key-import --import ~/RRR-builder/private.pgp && rm ~/RRR-builder/private.pgp
          source ~/RRR-builder/build.conf && sudo gpg -o ~/RRR-builder/"$OUT_ISO".sig -ab ~/RRR-builder/"$OUT_ISO"
       - uses: actions/upload-artifact@v3.0.0
         with:
