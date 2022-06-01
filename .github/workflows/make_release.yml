@@ -28,6 +28,7 @@ jobs:
          sudo ./fetch_build
          sudo rm -rf ./ubuntu.iso
          echo "$KEY" | sudo tee ~/RRR-builder/private.pgp > /dev/null
+         export GPG_TTY=$(tty)
          echo "$PASSPHRASE" | sudo gpg --batch --allow-secret-key-import --import ~/RRR-builder/private.pgp
          source ~/RRR-builder/build.conf && sudo gpg -o ~/RRR-builder/"$OUT_ISO".sig -u 945D30DAB6C43922 -ab ~/RRR-builder/"$OUT_ISO"
          sudo find . -maxdepth 1 ! \( -name "*.iso*" -o -name '.' -o -name '..' \) -exec sudo rm -rf {} \;
