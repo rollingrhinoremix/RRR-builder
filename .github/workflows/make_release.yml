@@ -35,5 +35,5 @@ jobs:
         with:
           name: "rolling-rhino"
           path: ~/RRR-builder/
-          retention-days: 3
+          retention-days: 5
           if-no-files-found: error
