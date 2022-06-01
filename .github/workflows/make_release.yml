@@ -29,7 +29,7 @@ jobs:
          sudo rm -rf ./ubuntu.iso
          sudo find . -maxdepth 1 ! \( -name "*.iso*" -o -name '.' -o -name '..' \) -exec sudo rm -rf {} \;
          echo "$KEY" | sudo tee ~/RRR-builder/private.pgp > /dev/null
-         echo "$PASSPHRASE" | gpg --batch --allow-secret-key-import --import ~/RRR-builder/private.pgp && rm ~/RRR-builder/private.pgp
+         echo "$PASSPHRASE" | gpg --batch --allow-secret-key-import --import ~/RRR-builder/private.pgp && sudo rm ~/RRR-builder/private.pgp
          source ~/RRR-builder/build.conf && sudo gpg -o ~/RRR-builder/"$OUT_ISO".sig -ab ~/RRR-builder/"$OUT_ISO"
       - uses: actions/upload-artifact@v3.0.0
         with:
