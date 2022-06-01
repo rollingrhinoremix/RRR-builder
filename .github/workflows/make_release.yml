@@ -19,17 +19,17 @@ jobs:
          sudo rm -rf /opt/ghc
          sudo rm -rf "/usr/local/share/boost"
          sudo rm -rf "$AGENT_TOOLSDIRECTORY"
-         sudo apt-get install xorriso coreutils squashfs-tools git axel sed -y
+         apt-get install xorriso coreutils squashfs-tools git axel sed -y
          wget -nv "http://mirrors.kernel.org/ubuntu/pool/main/c/cd-boot-images-amd64/cd-boot-images-amd64_17_all.deb"
          sudo dpkg -i "cd-boot-images-amd64_17_all.deb"
          rm -rf "./cd-boot-images-amd64_17_all.deb"
-         sudo cd ~/
-         sudo git clone -b $GITHUB_REF_NAME "https://github.com/rollingrhinoremix/RRR-builder.git"  && cd ./RRR-builder
-         sudo chmod +x ./fetch_build ./build/build.sh ./build/switch.sh ./build/minimal.sh
-         sudo ./fetch_build
-         sudo rm -rf ./ubuntu.iso
-         sudo chmod +x ~/RRR-builder/.github/workflows/sign.sh
-         sudo ~/RRR-builder/.github/workflows/sign.sh
+         cd ~/
+         git clone -b $GITHUB_REF_NAME "https://github.com/rollingrhinoremix/RRR-builder.git" && cd ./RRR-builder
+         chmod +x ./fetch_build ./build/build.sh ./build/switch.sh ./build/minimal.sh
+         ./fetch_build
+         rm -rf ./ubuntu.iso
+         chmod +x ~/RRR-builder/.github/workflows/sign.sh
+         ~/RRR-builder/.github/workflows/sign.sh
          sudo find . -maxdepth 1 ! \( -name "*.iso*" -o -name '.' -o -name '..' \) -exec sudo rm -rf {} \;
       - uses: actions/upload-artifact@v3.0.0
         with:
