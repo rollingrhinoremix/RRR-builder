@@ -12,6 +12,7 @@ jobs:
         env:
              KEY: ${{ secrets.GPG_PRIVATE_KEY }}
              PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
+             GPG_TTY: $(tty)
         run: |
          sudo rm -rf /usr/local/lib/android
          sudo rm -rf /usr/share/dotnet
