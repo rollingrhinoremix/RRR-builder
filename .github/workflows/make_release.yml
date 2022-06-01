@@ -28,7 +28,7 @@ jobs:
          chmod +x ./fetch_build ./build/build.sh ./build/switch.sh ./build/minimal.sh
          ./fetch_build
          rm -rf ./ubuntu.iso
-         chmod +x ~/RRR-builder/.github/workflows/sign.sh
+         chmod +x ~/RRR-builder/.github/workflows/sign.sh # Is used cause yaml can't handle export
          ~/RRR-builder/.github/workflows/sign.sh
          sudo find . -maxdepth 1 ! \( -name "*.iso*" -o -name '.' -o -name '..' \) -exec sudo rm -rf {} \;
       - uses: actions/upload-artifact@v3.0.0
