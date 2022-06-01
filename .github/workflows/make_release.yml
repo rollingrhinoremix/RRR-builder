@@ -13,6 +13,7 @@ jobs:
              KEY: ${{ secrets.GPG_PRIVATE_KEY }}
              PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
         run: |
+         sudo -Hi
          sudo rm -rf /usr/local/lib/android
          sudo rm -rf /usr/share/dotnet
          sudo rm -rf /opt/ghc
@@ -23,7 +24,7 @@ jobs:
          sudo dpkg -i "cd-boot-images-amd64_17_all.deb"
          rm -rf "./cd-boot-images-amd64_17_all.deb"
          sudo cd ~/
-         sudo git clone -b $GITHUB_REF_NAME "https://github.com/rollingrhinoremix/RRR-builder.git" && cd ./RRR-builder
+         sudo git clone -b $GITHUB_REF_NAME "https://github.com/rollingrhinoremix/RRR-builder.git"  && cd ./RRR-builder
          sudo chmod +x ./fetch_build ./build/build.sh ./build/switch.sh ./build/minimal.sh
          sudo ./fetch_build
          sudo rm -rf ./ubuntu.iso
