@@ -71,10 +71,10 @@ extract-cd/boot: .edit.timestamp .enter.timestamp
 	cp grub.cfg extract-cd/boot/grub/grub.cfg
 	cp loopback.cfg extract-cd/boot/grub/loopback.cfg
 
-extract-cd/md5sum.txt: extract-cd/casper/filesystem.squashfs extract-cd/casper/filesystem.size
-	cd extract-cd; rm md5sum.txt; find -type f -print0 | sudo xargs -0 md5sum | /usr/bin/env grep -v 'md5sum.txt' | /usr/bin/env grep -v 'boot.catalog' | /usr/bin/env grep -v 'eltorito.img' > md5sum.txt
+extract-cd/sha256sum.txt: extract-cd/casper/filesystem.squashfs extract-cd/casper/filesystem.size
+	cd extract-cd; rm sha256sum.txt; find -type f -print0 | sudo xargs -0 sha256sum | /usr/bin/env grep -v 'sha256sum.txt' | /usr/bin/env grep -v 'boot.catalog' | /usr/bin/env grep -v 'eltorito.img' > sha256sum.txt
 
-build.iso: extract-cd/.disk extract-cd/boot extract-cd/README.diskdefines extract-cd/md5sum.txt
+build.iso: extract-cd/.disk extract-cd/boot extract-cd/README.diskdefines extract-cd/sha256sum.txt
 	source build.conf && rm -f "$$OUT_ISO" && cd extract-cd && xorriso -as mkisofs -r -checksum_algorithm_iso md5,sha1 -J -joliet-long -l \
 		-b boot/grub/i386-pc/eltorito.img -no-emul-boot -boot-load-size 4 -boot-info-table --grub2-boot-info \
 		--grub2-mbr /usr/share/cd-boot-images-amd64/images/boot/grub/i386-pc/boot_hybrid.img \
@@ -82,7 +82,7 @@ build.iso: extract-cd/.disk extract-cd/boot extract-cd/README.diskdefines extrac
 		-appended_part_as_gpt -eltorito-alt-boot -e --interval\:appended_partition_2\:all\:\: -no-emul-boot \
 		-partition_offset 16 /usr/share/cd-boot-images-amd64/tree \
 		-V "$$DISKNAME" -o "../$$OUT_ISO" .
-	source build.conf && rm -f "$$OUT_ISO.md5sum" && md5sum "$$OUT_ISO" > "$$OUT_ISO.md5sum"
+	source build.conf && rm -f "$$OUT_ISO.sha256sum" && sha256sum "$$OUT_ISO" > "$$OUT_ISO.sha256sum"
 
 iso: build.iso
 
@@ -97,4 +97,4 @@ clean:
 	@rm -rf edit extract-cd mnt squashfs-root .edit.timestamp .enter.timestamp .hosts.backup
 
 clean-iso: clean
-	source build.conf && rm -f "$$OUT_ISO" "$$OUT_ISO.md5sum"
+	source build.conf && rm -f "$$OUT_ISO" "$$OUT_ISO.sha256sum"
