@@ -81,6 +81,7 @@ build.iso: extract-cd/.disk extract-cd/boot extract-cd/README.diskdefines extrac
 		-append_partition 2 0xef /usr/share/cd-boot-images-amd64/images/boot/grub/efi.img \
 		-appended_part_as_gpt -eltorito-alt-boot -e --interval\:appended_partition_2\:all\:\: -no-emul-boot \
 		-partition_offset 16 /usr/share/cd-boot-images-amd64/tree \
+		-zisofs level=5
 		-V "$$DISKNAME" -o "../$$OUT_ISO" .
 	source build.conf && rm -f "$$OUT_ISO.sha256sum" && sha256sum "$$OUT_ISO" > "$$OUT_ISO.sha256sum"
 
