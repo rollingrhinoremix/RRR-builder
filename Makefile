@@ -71,10 +71,10 @@ extract-cd/boot: .edit.timestamp .enter.timestamp
 	cp grub.cfg extract-cd/boot/grub/grub.cfg
 	cp loopback.cfg extract-cd/boot/grub/loopback.cfg
 
-extract-cd/sha256sum.txt: extract-cd/casper/filesystem.squashfs extract-cd/casper/filesystem.size
-	cd extract-cd; rm sha256sum.txt; find -type f -print0 | sudo xargs -0 sha256sum | /usr/bin/env grep -v 'sha256sum.txt' | /usr/bin/env grep -v 'boot.catalog' | /usr/bin/env grep -v 'eltorito.img' > sha256sum.txt
+extract-cd/md5sum.txt: extract-cd/casper/filesystem.squashfs extract-cd/casper/filesystem.size
+	cd extract-cd; rm md5sum.txt; find -type f -print0 | sudo xargs -0 md5sum | /usr/bin/env grep -v 'md5sum.txt' | /usr/bin/env grep -v 'boot.catalog' | /usr/bin/env grep -v 'eltorito.img' > md5sum.txt
 
-build.iso: extract-cd/.disk extract-cd/boot extract-cd/README.diskdefines extract-cd/sha256sum.txt
+build.iso: extract-cd/.disk extract-cd/boot extract-cd/README.diskdefines extract-cd/md5sum.txt
 	source build.conf && rm -f "$$OUT_ISO" && cd extract-cd && xorriso -as mkisofs -r -checksum_algorithm_iso md5,sha1 -J -joliet-long -l \
 		-b boot/grub/i386-pc/eltorito.img -no-emul-boot -boot-load-size 4 -boot-info-table --grub2-boot-info \
 		--grub2-mbr /usr/share/cd-boot-images-amd64/images/boot/grub/i386-pc/boot_hybrid.img \
