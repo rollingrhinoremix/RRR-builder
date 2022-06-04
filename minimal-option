@@ -123,4 +123,4 @@ bubblewrap
 libsnapd-glib1
 gir1.2-snapd-1
 systemd-oomd
-snapd
+gnome-menus
