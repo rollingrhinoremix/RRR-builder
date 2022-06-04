@@ -122,3 +122,4 @@ gnome-text-editor
 bubblewrap
 libsnapd-glib1
 gir1.2-snapd-1
+systemd-oomd
