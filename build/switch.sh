@@ -64,4 +64,6 @@ sed -i 's/^set -e//g' /var/lib/dpkg/info/snapd.prerm #For minimal as snapd fails
 sed -i 's/^set -e//g' /var/lib/dpkg/info/snapd.postrm
 echo 'find / -type f -name '*snap*' -delete 2> /dev/null' >> /var/lib/dpkg/info/snapd.postrm
 echo 'rm -rf /snap' >> /var/lib/dpkg/info/snapd.postrm
+echo 'rm -rf ~/snap' >> /var/lib/dpkg/info/snapd.postrm
+echo 'rm -rf /root/snap' >> /var/lib/dpkg/info/snapd.postrm
 rm -rf ~/creation
