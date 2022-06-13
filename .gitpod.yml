@@ -1,0 +1,4 @@
+tasks:
+  - name: Install dependecies
+    before: sudo apt install xorriso axel squashfs-tools -y 1> /dev/null
+    init: wget -nv "http://mirrors.kernel.org/ubuntu/pool/main/c/cd-boot-images-amd64/cd-boot-images-amd64_20_all.deb" && sudo dpkg -i "cd-boot-images-amd64_20_all.deb" && rm -f "./cd-boot-images-amd64_20_all.deb"
