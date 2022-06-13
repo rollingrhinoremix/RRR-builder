@@ -30,10 +30,10 @@ mv ~/creation/rhino-deinst/rhino-deinst /usr/bin
 # Install the latest Linux kernel (from Ubuntu mainline repositories)
 mkdir ~/creation/kernel
 cd ~/creation/kernel
-wget -q --show-progress --progress=bar:force https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.18.2/amd64/linux-headers-5.18.2-051802-generic_5.18.2-051802.202206060740_amd64.deb
-wget -q --show-progress --progress=bar:force https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.18.2/amd64/linux-headers-5.18.2-051802_5.18.2-051802.202206060740_all.deb
-wget -q --show-progress --progress=bar:force https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.18.2/amd64/linux-image-unsigned-5.18.2-051802-generic_5.18.2-051802.202206060740_amd64.deb
-wget -q --show-progress --progress=bar:force https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.18.2/amd64/linux-modules-5.18.2-051802-generic_5.18.2-051802.202206060740_amd64.deb
+wget -q --show-progress --progress=bar:force https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.18.3/amd64/linux-headers-5.18.3-051803-generic_5.18.3-051803.202206090934_amd64.deb
+wget -q --show-progress --progress=bar:force https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.18.3/amd64/linux-headers-5.18.3-051803_5.18.3-051803.202206090934_all.deb
+wget -q --show-progress --progress=bar:force https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.18.3/amd64/linux-image-unsigned-5.18.3-051803-generic_5.18.3-051803.202206090934_amd64.deb
+wget -q --show-progress --progress=bar:force https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.18.3/amd64/linux-modules-5.18.3-051803-generic_5.18.3-051803.202206090934_amd64.deb
 sudo apt install ./*.deb -y
 # Clean up system files
 apt-get clean -y
