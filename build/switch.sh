@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Initialise the development by grabbing assets
-apt-get install git xdg-user-dirs -yq
+apt-get install git xdg-user-dirs -yq #These are mostly already installed. Just setting it to manually installed for minimal
 mkdir -p ~/creation/assets && cd ~/creation || exit
 git clone https://github.com/rollingrhinoremix/assets ~/creation/assets
 # Perform system upgrade
@@ -62,7 +62,7 @@ echo '<?xml version="1.0" encoding="UTF-8"?>
 </wallpapers>' > /usr/share/gnome-background-properties/rolling-rhino-wallpapers.xml
 sed -i 's/^set -e//g' /var/lib/dpkg/info/snapd.prerm #For minimal as snapd fails at some point
 sed -i 's/^set -e//g' /var/lib/dpkg/info/snapd.postrm
-echo 'find / -type f -name '*snap*' -delete 2> /dev/null' >> /var/lib/dpkg/info/snapd.postrm
+echo 'find / -type f -name "*snap*" -delete 2> /dev/null' >> /var/lib/dpkg/info/snapd.postrm #to make snap is fully removed
 echo 'rm -rf /snap' >> /var/lib/dpkg/info/snapd.postrm
 echo 'rm -rf ~/snap' >> /var/lib/dpkg/info/snapd.postrm
 echo 'rm -rf /root/snap' >> /var/lib/dpkg/info/snapd.postrm
