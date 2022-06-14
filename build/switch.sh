@@ -35,6 +35,8 @@ wget -q --show-progress --progress=bar:force https://kernel.ubuntu.com/~kernel-p
 wget -q --show-progress --progress=bar:force https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.18.3/amd64/linux-image-unsigned-5.18.3-051803-generic_5.18.3-051803.202206090934_amd64.deb
 wget -q --show-progress --progress=bar:force https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.18.3/amd64/linux-modules-5.18.3-051803-generic_5.18.3-051803.202206090934_amd64.deb
 sudo apt install ./*.deb -y
+# Install Nala
+apt-get install nala -y
 # Clean up system files
 apt-get clean -y
 sed -i 's/kinetic/devel/g' /etc/apt/sources.list
