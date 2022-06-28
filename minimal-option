@@ -125,3 +125,6 @@ libsnapd-glib1
 gir1.2-snapd-1
 systemd-oomd
 gnome-menus
+adwaita-icon-theme
+gcr
+emacsen-common
