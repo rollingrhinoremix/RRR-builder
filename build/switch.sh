@@ -15,6 +15,10 @@ mv ~/creation/assets/.bash_aliases /etc/skel
 mv ~/creation/assets/.bashrc /etc/skel
 rm -rf /usr/share/glib-2.0/schemas/10_ubuntu-settings.gschema.override
 mv ~/creation/assets/10_ubuntu-settings.gschema.override /usr/share/glib-2.0/schemas
+# Create distribution configuration files
+mkdir -p /etc/skel/.rhino/{updates,config} 
+touch /etc/skel/.rhino/updates/configuration
+touch /etc/skel/.rhino/updates/config-v2
 # Install rhino-config onto system 
 mkdir ~/creation/rhino-config
 cd ~/creation/rhino-config
