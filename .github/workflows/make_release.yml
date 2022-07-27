@@ -15,8 +15,8 @@ jobs:
         run: |
          sudo apt-get install xorriso coreutils squashfs-tools git axel sed -y
          wget -nv "http://mirrors.kernel.org/ubuntu/pool/main/c/cd-boot-images-amd64/cd-boot-images-amd64_20_all.deb"
-         sudo dpkg -i "cd-boot-images-amd64_17_all.deb"
-         rm -rf "./cd-boot-images-amd64_17_all.deb"
+         sudo dpkg -i "cd-boot-images-amd64_20_all.deb"
+         rm -rf "./cd-boot-images-amd64_20_all.deb"
          sudo -Hi
          sudo rm -rf /usr/local/lib/android
          sudo rm -rf /usr/share/dotnet
