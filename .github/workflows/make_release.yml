@@ -14,7 +14,7 @@ jobs:
              PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
         run: |
          sudo apt-get install xorriso coreutils squashfs-tools git axel sed -y
-         wget -nv "http://mirrors.kernel.org/ubuntu/pool/main/c/cd-boot-images-amd64/cd-boot-images-amd64_20_all.deb"
+         wget -q "http://mirrors.kernel.org/ubuntu/pool/main/c/cd-boot-images-amd64/cd-boot-images-amd64_20_all.deb"
          sudo dpkg -i "cd-boot-images-amd64_20_all.deb"
          rm -rf "./cd-boot-images-amd64_20_all.deb"
          sudo -Hi
