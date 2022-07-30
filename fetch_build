@@ -9,7 +9,7 @@ rm -f ubuntu.iso
 source fetch_build.conf
 
 if command -v axel 2> /dev/null; then
-		[[ -z "$DOWNLOAD_ISO" ]] && axel -qo ubuntu.iso "https://releases.ubuntu.com/$CODENAME/ubuntu-$RELEASE-desktop-$ARCH.iso" || axel -ao ubuntu.iso "$DOWNLOAD_ISO"
+		[[ -z "$DOWNLOAD_ISO" ]] && axel -qo ubuntu.iso "https://releases.ubuntu.com/$CODENAME/ubuntu-$RELEASE-desktop-$ARCH.iso" || axel -qo ubuntu.iso "$DOWNLOAD_ISO"
 	else
 		[[ -z "$DOWNLOAD_ISO" ]] && wget -q -O ubuntu.iso "https://releases.ubuntu.com/$CODENAME/ubuntu-$RELEASE-desktop-$ARCH.iso" || wget -q -O ubuntu.iso "$DOWNLOAD_ISO"
 fi
