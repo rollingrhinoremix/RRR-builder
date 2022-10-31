@@ -34,10 +34,10 @@ mv ~/creation/rhino-deinst/rhino-deinst /usr/bin
 # Install the latest Linux kernel (from Ubuntu mainline repositories)
 mkdir ~/creation/kernel
 cd ~/creation/kernel
-wget -q --show-progress --progress=bar:force https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.19.11/amd64/linux-headers-5.19.11-051911-generic_5.19.11-051911.202209231341_amd64.deb
-wget -q --show-progress --progress=bar:force https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.19.11/amd64/linux-headers-5.19.11-051911_5.19.11-051911.202209231341_all.deb
-wget -q --show-progress --progress=bar:force https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.19.11/amd64/linux-image-unsigned-5.19.11-051911-generic_5.19.11-051911.202209231341_amd64.deb
-wget -q --show-progress --progress=bar:force https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.19.11/amd64/linux-modules-5.19.11-051911-generic_5.19.11-051911.202209231341_amd64.deb
+wget -q --show-progress --progress=bar:force https://kernel.ubuntu.com/~kernel-ppa/mainline/v6.0.6/amd64/linux-headers-6.0.6-060006-generic_6.0.6-060006.202210290932_amd64.deb
+wget -q --show-progress --progress=bar:force https://kernel.ubuntu.com/~kernel-ppa/mainline/v6.0.6/amd64/linux-headers-6.0.6-060006_6.0.6-060006.202210290932_all.deb
+wget -q --show-progress --progress=bar:force https://kernel.ubuntu.com/~kernel-ppa/mainline/v6.0.6/amd64/linux-image-unsigned-6.0.6-060006-generic_6.0.6-060006.202210290932_amd64.deb
+wget -q --show-progress --progress=bar:force https://kernel.ubuntu.com/~kernel-ppa/mainline/v6.0.6/amd64/linux-modules-6.0.6-060006-generic_6.0.6-060006.202210290932_amd64.deb
 sudo apt install ./*.deb -y
 # Install Nala
 apt-get install nala -y
